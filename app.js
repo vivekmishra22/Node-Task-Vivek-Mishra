@@ -13,8 +13,6 @@ db.raw('SELECT 1')
 
 const app = express();
 
-//  this is node task from HackerKernel Bhopal
-
 // Register Handlebars with custom helpers
 const hbs = exphbs.create({
   extname: '.hbs',
