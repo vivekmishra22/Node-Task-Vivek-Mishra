@@ -1,0 +1,40 @@
+<h2>Add Task</h2>
+
+<form action="/tasks/add" method="POST" id="taskForm">
+  <div class="form-group">
+    <label for="user_id">User</label>
+    <select id="user_id" name="user_id" required>
+      <option value="">Select User</option>
+      {{#each users}}
+        <option value="{{this.id}}" {{#if (eq this.id ../task.user_id)}}selected{{/if}}>
+          {{this.name}} ({{this.email}})
+        </option>
+      {{/each}}
+    </select>
+    {{#if errors.user_id}}
+      <span class="error">{{errors.user_id.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <div class="form-group">
+    <label for="task_name">Task Name</label>
+    <input type="text" id="task_name" name="task_name" value="{{task.task_name}}" required>
+    {{#if errors.task_name}}
+      <span class="error">{{errors.task_name.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <div class="form-group">
+    <label for="task_type">Task Type</label>
+    <select id="task_type" name="task_type" required>
+      <option value="">Select Type</option>
+      <option value="Pending" {{#if (eq task.task_type "Pending")}}selected{{/if}}>Pending</option>
+      <option value="Done" {{#if (eq task.task_type "Done")}}selected{{/if}}>Done</option>
+    </select>
+    {{#if errors.task_type}}
+      <span class="error">{{errors.task_type.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <button type="submit">Add Task</button>
+</form>

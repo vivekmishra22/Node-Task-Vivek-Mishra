@@ -1,0 +1,29 @@
+<h2>Add User</h2>
+
+<form action="/users/add" method="POST" id="userForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="{{user.name}}" required>
+    {{#if errors.name}}
+      <span class="error">{{errors.name.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="{{user.email}}" required>
+    {{#if errors.email}}
+      <span class="error">{{errors.email.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" id="mobile" name="mobile" value="{{user.mobile}}" required>
+    {{#if errors.mobile}}
+      <span class="error">{{errors.mobile.msg}}</span>
+    {{/if}}
+  </div>
+  
+  <button type="submit">Add User</button>
+</form>

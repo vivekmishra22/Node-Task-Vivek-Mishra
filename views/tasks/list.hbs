@@ -1,0 +1,22 @@
+<h2>Tasks</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Task Name</th>
+      <th>Task Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tasks}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.user.name}} ({{this.user.email}})</td>
+        <td>{{this.task_name}}</td>
+        <td>{{this.task_type}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
