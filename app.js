@@ -6,12 +6,14 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const db = require('./config/database');
 
-// Test DB connection
+// Test DB connection 
 db.raw('SELECT 1')
   .then(() => console.log('Database connected'))
   .catch(err => console.error('Database connection failed:', err));
 
 const app = express();
+
+//  this is node task from HackerKernel Bhopal
 
 // Register Handlebars with custom helpers
 const hbs = exphbs.create({
